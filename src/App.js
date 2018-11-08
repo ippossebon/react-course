@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import ShoppingList from './components/shopping-list/shopping-list.js'
+//import ShoppingList from './components/shopping-list/shopping-list.js'
 // import Timer from './components/timer/timer.js'
 
 import './App.css';
@@ -12,7 +12,6 @@ class App extends Component {
         <header className="App-header">
           <h1>Lista de compras</h1>
         </header>
-        <ShoppingList />
       </div>
     );
   }
