@@ -5,29 +5,36 @@ import Item from '../shopping-item/shopping-item.js'
 import './shopping-list.css'
 
 class ShoppingList extends Component {
-  state = {
-    items: 1
+  constructor(props) {
+    super(props);
+    this.state = {
+      items: [
+        {
+          text: 'Para comprar'
+        }
+      ]
+    };
+    this.addItem = this.addItem.bind(this);
   }
 
   addItem() {
-    let count = this.state.items
-    count = count + 1
-    this.setState({ items: count })
+    const newItem = {
+      text: 'Mais um item'
+    }
+    let newItemsList = [...this.state.items];
+    newItemsList.push(newItem)
+
+    this.setState({ items: newItemsList })
   }
 
-  renderItems() {
-    var i;
-    for (i = 0; i < this.state.items; i++) {
-      return (
-        <Item />
-      )
-    }
-  }
 
   render() {
+    console.log(this.state.items)
     return (
       <div className='shopping-list'>
-        {this.renderItems()}
+        {this.state.items.map(
+          (item, i) => <Item key={`item-${i}`} label={item.text}/>
+        )}
 
         <button className='shopping-list__add-item' onClick={this.addItem}>
         +
